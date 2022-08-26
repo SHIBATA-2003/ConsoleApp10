@@ -3,10 +3,15 @@ public class box
 {
     static void Main()
     {
-        Box box = new Box(InputFloat("半径を入力"), InputFloat("高さを入力"), InputFloat("底辺の長さを入力"));
+        Console.WriteLine("円柱");
+        Box box = new Box(InputFloat("底面の半径を入力"), InputFloat("高さを入力"));
+        Console.WriteLine("球");
+        Sphere sph = new Sphere(InputFloat("半径を入力"));
+        Console.WriteLine("三角柱");
+        TriangularPrism tri = new TriangularPrism(InputFloat("高さを入力"), InputFloat("三角形の高さを入力"), InputFloat("底辺の長さを入力"));
         Console.WriteLine("円柱の表面積 = " + box.GetSurfaceC()+" 体積 = " + box.GetVolumeC());
-        Console.WriteLine("球の表面積 = " + box.GetSurfaceS() + " 体積 = " + box.GetVolumeS());
-        Console.WriteLine("円柱の表面積 = " + box.GetSurfaceT() + " 体積 = " + box.GetVolumeT());
+        Console.WriteLine("球の表面積 = " + sph.GetSurfaceS() + " 体積 = " + sph.GetVolumeS());
+        Console.WriteLine("三角柱の表面積 = " + tri.GetSurfaceT() + " 体積 = " + tri.GetVolumeT());
     }
 
     static float InputFloat(string su)
@@ -26,44 +31,67 @@ class Box
 {
     private float radius;
     private float height;
-    private float depth;
-    public Box(float r, float h, float d)
+    public Box(float r, float h)
     {
         this.radius = r;
         this.height = h;
-        this.depth = d;
        
     }
     public Box(float r = 1)
     {
         this.radius = r;
         this.height = r;
-        this.depth = r;
     }
     public float GetVolumeC()
     {
-        return (float)(radius *radius*3.14*height);
+        return radius *radius*MathF.PI*height;
     }
     public float GetSurfaceC()
     {
-        return ((float)(radius *3.14 *height* 2));
+        return radius *MathF.PI *height* 2;
+    }
+
+}
+class Sphere
+{
+    private float height;
+    public Sphere(float Z)
+    {
+        this.height = Z;
+
     }
     public float GetSurfaceS()
     {
-        return ((float)(radius * radius * 3.14  * 4));
+        return height * height * MathF.PI * 4;
     }
     public float GetVolumeS()
     {
-        return ((float)(4/3 * 3.14 * radius*radius*radius));
+        return 4 / 3 * MathF.PI * height * height * height;
+    }
+}
+class TriangularPrism
+{
+    private float heigh;
+    private float dept;
+    public TriangularPrism (float c, float v,float m)
+    {
+        this.heigh = c;
+        this.dept = v;
+
+    }
+    public TriangularPrism(float n= 1)
+    {
+        this.heigh = n;
+        this.dept = n;
     }
     public float GetVolumeT()
     {
-        return (depth*height)/2*height;
+        return (dept * heigh) / 2 * heigh;
     }
     public float GetSurfaceT()
     {
-        double x = height * height + depth / 2 * depth / 2;
+        double x = heigh * heigh+ dept / 2 * dept / 2;
         x = System.Math.Sqrt(x);
-        return (float)(depth * height + height * (depth + x + x));
+        return (float)(dept * heigh + heigh * (dept + x + x));
     }
 }
