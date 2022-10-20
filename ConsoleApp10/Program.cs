@@ -15,7 +15,7 @@ public class box
         Console.WriteLine("三角柱");
         TriangularPrism tri = new TriangularPrism(InputFloat("高さを入力"), InputFloat("三角形の高さを入力"), InputFloat("底辺の長さを入力"));
 
-        Console.WriteLine("直方体の表面積 = " + box.GetSurfaceB()+"体積="+box.GetVolumeB)
+        Console.WriteLine("直方体の表面積 = " + box.GetSurfaceB()+"体積="+box.GetVolumeB());
         Console.WriteLine("円柱の表面積 = " + cyl.GetSurfaceC()+" 体積 = " + cyl.GetVolumeC());
         Console.WriteLine("球の表面積 = " + sph.GetSurfaceS() + " 体積 = " + sph.GetVolumeS());
         Console.WriteLine("三角柱の表面積 = " + tri.GetSurfaceT() + " 体積 = " + tri.GetVolumeT());
