@@ -126,6 +126,6 @@ class TriangularPrism
     }
     public float GetSurfaceT()
     {
-     return (dept*side/2)*2+heigh*(Math.Sqrt(dept*dept+side/2*side/2)*2+side);
+     return (float)((dept*side/2)*2+heigh*(Math.Sqrt(dept*dept+side/2*side/2)*2+side));
     }
 }
