@@ -95,11 +95,11 @@ class Sphere
     }
     public float GetSurfaceS()
     {
-        return height * height * MathF.PI * 4;
+        return 4*height * height * MathF.PI;
     }
     public float GetVolumeS()
     {
-        return 4 / 3 * MathF.PI * height * height * height;
+        return  4* MathF.PI * height * height * height/3;
     }
 }
 class TriangularPrism
@@ -126,6 +126,8 @@ class TriangularPrism
     }
     public float GetSurfaceT()
     {
-     return (float)((dept*side/2)*2+heigh*(Math.Sqrt(dept*dept+side/2*side/2)*2+side));
+        float si = (side * side);
+        float de =  (dept*dept);
+     return (float)((dept*side)+ heigh*((Math.Sqrt(si+de))+dept+side));
     }
 }
