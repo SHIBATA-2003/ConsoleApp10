@@ -3,7 +3,7 @@ public class box
 {
     static void Main()
     {
-        Console.WriteLine("直方体")
+        Console.WriteLine("直方体");
         Box box = new Box(InputFloat("幅を入力"), InputFloat("高さを入力"), InputFloat("奥行きを入力"));
 
         Console.WriteLine("円柱");
